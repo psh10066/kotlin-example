@@ -14,6 +14,8 @@ fun main() {
 
     dog.eat()
     dog.bark()
+    println(dog.defaultHiString)
+    dog.defaultHi()
 }
 
 interface Bark {
@@ -22,6 +24,14 @@ interface Bark {
 
 interface Temp {
     fun hi()
+
+    // interface 내에서 property 생성 시 몸통이 없는 getter만 default로 생성 가능하다.
+    val defaultHiString : String
+        get() = "hi"
+
+    fun defaultHi() {
+        println(defaultHiString)
+    }
 }
 
 abstract class Animal(
