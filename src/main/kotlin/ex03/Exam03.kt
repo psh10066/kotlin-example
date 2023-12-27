@@ -10,7 +10,15 @@ fun main() {
 
     // immutable list. 초기화 때 넣지 않으면 수정이 불가능.
     // java에서의 immutable list는 add 등의 수정 메소드가 제공되나 사용 시 오류가 발생하고, kotlin에서는 그러한 메소드 자체가 없다.
-    val list = userList
+    val list = listOf(
+        User("4", 40)
+    )
+
+    // buildList는 mutableList 형식으로 초기화 시 add 사용 후 immutableList로 변환된다.
+    val list2 = buildList{
+        add(User("5", 50))
+        add(User("6", 60))
+    }
 
     for (element in userList) {
         println(element)
